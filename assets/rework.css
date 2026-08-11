@@ -194,7 +194,6 @@ h2 {
   gap: clamp(2.5rem, 6vw, 7rem);
 }
 
-.lead,
 .fit__intro {
   max-width: 41rem;
   font-size: clamp(1.25rem, 1.8vw, 1.65rem);
@@ -421,26 +420,6 @@ h2 {
 
 /* Editorial sections */
 
-#approach { background: rgba(255, 250, 242, 0.52); }
-
-#approach h2 { max-width: 12ch; }
-
-.principles {
-  max-width: none;
-  margin-top: 3rem;
-  border-top: 1px solid var(--ink);
-}
-
-.principles li {
-  min-height: 14rem;
-  padding-top: 1.2rem;
-}
-
-.principles h3 {
-  margin-top: 2.7rem;
-  font-size: clamp(1.55rem, 2vw, 2rem);
-}
-
 .story { background: var(--sage); }
 
 .story .section {
@@ -451,6 +430,7 @@ h2 {
 .story__image { width: min(100%, 29rem); }
 
 .story__image img {
+  aspect-ratio: 5 / 7;
   box-shadow: 1.1rem 1.1rem 0 var(--sage-deep), -1.2rem -1.2rem 0 rgba(255, 250, 242, 0.34);
 }
 
@@ -573,8 +553,6 @@ footer { padding-block: 1.6rem; }
   .player__footer { gap: 1rem; }
 
   .section-grid { gap: 1.35rem; }
-  .principles { margin-top: 2.5rem; }
-  .principles h3 { margin-top: 1.3rem; }
 
   .story .section { grid-template-columns: 1fr; gap: 3.5rem; }
   .story__image { width: min(82vw, 25rem); }

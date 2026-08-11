@@ -423,56 +423,6 @@
 
       .section-label { padding-top: 0.4rem; }
 
-      .lead {
-        max-width: 46rem;
-        margin: 2rem 0 0;
-        font-family: var(--serif);
-        font-size: clamp(1.35rem, 2.2vw, 1.9rem);
-        line-height: 1.52;
-      }
-
-      .principles {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0;
-        max-width: 67rem;
-        margin: 3rem 0 0;
-        padding: 0;
-        border-top: 2px solid var(--ink);
-        list-style: none;
-      }
-
-      .principles li {
-        min-height: 14.5rem;
-        padding: 1.25rem 1.6rem 1.5rem 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .principles li + li {
-        padding-left: 1.6rem;
-        border-left: 1px solid var(--line);
-      }
-
-      .principles span {
-        color: var(--berry);
-        font-size: 0.76rem;
-        font-weight: 800;
-      }
-
-      .principles h3 {
-        max-width: none;
-        margin: 1.75rem 0 0.75rem;
-        font-size: clamp(1.65rem, 2.4vw, 2.3rem);
-        letter-spacing: -0.045em;
-        line-height: 1;
-      }
-
-      .principles p {
-        margin: 0;
-        color: var(--ink-soft);
-        line-height: 1.65;
-      }
-
       .story {
         background: var(--sage);
       }
@@ -734,14 +684,9 @@
 
         .section-grid { grid-template-columns: 1fr; gap: 2rem; }
         .voice-note__inner { grid-template-columns: minmax(0, 1fr) minmax(12rem, 16rem); }
-        .principles { margin-top: 2.5rem; }
         .story .section { grid-template-columns: minmax(15rem, 0.65fr) minmax(0, 1fr); gap: 3rem; }
         .contact__inner { grid-template-columns: 1fr; }
         .contact__aside { max-width: 38rem; }
-      }
-
-      @media (min-width: 701px) and (max-width: 1150px) {
-        .principles h3 { font-size: 1.5rem; }
       }
 
       @media (max-width: 700px) {
@@ -781,11 +726,6 @@
 
         .voice-note__inner { grid-template-columns: 1fr; gap: 1.7rem; }
         .voice-wave { justify-content: flex-start; width: min(100%, 18rem); height: 4.5rem; }
-
-        .principles { grid-template-columns: 1fr; }
-        .principles li { min-height: auto; padding: 1.4rem 0 1.7rem; }
-        .principles li + li { padding-left: 0; border-left: 0; }
-        .principles h3 { max-width: none; margin-top: 1.4rem; }
 
         .story .section { grid-template-columns: 1fr; gap: 3rem; }
         .story__image { order: 2; width: min(76vw, 24rem); }
@@ -831,7 +771,6 @@
 
         .site-header,
         .voice-note,
-        .principles,
         .fit__list,
         .studio__facts { border-color: currentColor; }
 
@@ -847,7 +786,7 @@
         "name": "Olly Jeffers",
         "jobTitle": "Audiobook narrator",
         "url": "https://ollyjeffers.co.uk/",
-        "image": "https://ollyjeffers.co.uk/assets/olly-jeffers.webp",
+        "image": "https://ollyjeffers.co.uk/assets/olly-jeffers-black-tie-900.webp",
         "sameAs": ["https://www.linkedin.com/in/ollyjeffers/"],
         "alumniOf": {"@type": "EducationalOrganization", "name": "Drama Centre"},
         "homeLocation": {"@type": "Place", "name": "London, United Kingdom"},
@@ -896,8 +835,8 @@
           <div class="hero__visual">
             <figure class="hero__portrait">
               <picture>
-                <source type="image/webp" srcset="assets/olly-jeffers-166.webp 166w, assets/olly-jeffers.webp 200w" sizes="(max-width: 700px) min(58vw, 232px), 336px">
-                <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="" fetchpriority="high">
+                <source type="image/webp" srcset="assets/olly-jeffers-black-tie-480.webp 480w, assets/olly-jeffers-black-tie-900.webp 900w" sizes="(max-width: 700px) min(88vw, 400px), min(33vw, 480px)">
+                <img src="assets/olly-jeffers-black-tie.jpg" width="900" height="900" alt="" fetchpriority="high">
               </picture>
             </figure>
           </div>
@@ -960,41 +899,14 @@
         </div>
       </section>
 
-      <section id="approach" aria-labelledby="approach-title">
-        <div class="section section-grid">
-          <p class="section-label"><span>02</span> The work</p>
-          <div>
-            <h2 id="approach-title">The work happens before the first word.</h2>
-            <p class="lead">A narrator has to understand the writing deeply enough to make the performance feel effortless. The voice should reveal the book, not sit on top of it.</p>
-            <ol class="principles">
-              <li>
-                <span>01</span>
-                <h3>Prepare the page</h3>
-                <p>Character, intention, pace and subtext all begin on the page. I prepare for what is said, what is meant and what should remain unspoken.</p>
-              </li>
-              <li>
-                <span>02</span>
-                <h3>Carry the thought</h3>
-                <p>Years spent working with complex subjects taught me how to carry an argument, protect nuance and bring a listener with me.</p>
-              </li>
-              <li>
-                <span>03</span>
-                <h3>Leave room</h3>
-                <p>The reading needs life, but it also needs judgement. I look for the performance the book asks for—no more and no less.</p>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </section>
-
       <section class="story" id="story" aria-labelledby="story-title">
         <div class="section">
           <figure class="story__image">
-            <img src="assets/olly-jeffers-speaking-360.webp" srcset="assets/olly-jeffers-speaking-360.webp 360w, assets/olly-jeffers-speaking.webp 600w" sizes="(max-width: 700px) min(76vw, 384px), 416px" width="360" height="516" alt="" loading="lazy">
+            <img src="assets/olly-jeffers-waterfront.jpg" srcset="assets/olly-jeffers-waterfront-420.webp 420w, assets/olly-jeffers-waterfront-800.webp 800w" sizes="(max-width: 700px) min(82vw, 400px), 464px" width="800" height="1120" alt="" loading="lazy">
           </figure>
 
           <div class="story__copy">
-            <p class="section-label"><span>03</span> My story</p>
+            <p class="section-label"><span>02</span> My story</p>
             <h2 id="story-title">A return to the work I began with.</h2>
             <div class="story__text">
               <p>I trained as an actor and singer at Drama Centre. Then life took an interesting turn into corporate learning and leadership development.</p>
@@ -1007,7 +919,7 @@
 
       <section id="fit" aria-labelledby="fit-title">
         <div class="section section-grid">
-          <p class="section-label"><span>04</span> The range</p>
+          <p class="section-label"><span>03</span> The range</p>
           <div>
             <h2 id="fit-title">Where I can do my best work.</h2>
             <p class="fit__intro">Intelligent narrative nonfiction is a natural starting point, not a fence. The thread running through the work is a strong point of view and a story worth following.</p>
@@ -1040,7 +952,7 @@
 
       <section class="studio" id="studio" aria-labelledby="studio-title">
         <div class="section section-grid">
-          <p class="section-label"><span>05</span> Voice &amp; studio</p>
+          <p class="section-label"><span>04</span> Voice &amp; studio</p>
           <div>
             <h2 id="studio-title">London‑based. Ready to record.</h2>
             <p class="studio__lead">My natural voice is British English with an RP / standard British accent. Home recording is available, and I am happy to travel to a professional studio when the production calls for it.</p>
@@ -1078,7 +990,7 @@
       <section class="contact" aria-labelledby="contact-title">
         <div class="contact__inner">
           <div>
-            <p class="section-label"><span>06</span> Have a book in mind?</p>
+            <p class="section-label"><span>05</span> Have a book in mind?</p>
             <h2 id="contact-title">Tell me about the book.</h2>
           </div>
           <div class="contact__aside">
