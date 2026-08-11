@@ -3,39 +3,41 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#171b22">
-    <meta name="description" content="Olly Jeffers is a London-based British audiobook narrator, actor-trained at Drama Centre London, with an RP / standard British accent.">
+    <meta name="theme-color" content="#fff8ee">
+    <meta name="description" content="Olly Jeffers is a London-based British audiobook narrator, actor-trained at Drama Centre, with an RP / standard British accent.">
     <link rel="canonical" href="https://ollyjeffers.co.uk/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Olly Jeffers | British audiobook narrator">
-    <meta property="og:description" content="Clear thinking. Human storytelling. Actor-trained British audiobook narration from London.">
+    <meta property="og:description" content="A British voice for books worth listening to. Actor-trained narration from London.">
     <meta property="og:url" content="https://ollyjeffers.co.uk/">
     <meta property="og:image" content="https://ollyjeffers.co.uk/assets/og-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Olly Jeffers — Clear thinking. Human storytelling.">
+    <meta property="og:image:alt" content="Olly Jeffers — a British voice for books worth listening to.">
     <meta name="twitter:card" content="summary_large_image">
     <title>Olly Jeffers | British audiobook narrator</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <style>
       :root {
-        --ink: #171b22;
-        --ink-soft: #292e36;
-        --paper: #f3efe7;
-        --paper-deep: #e9e1d4;
-        --rust: #a7432d;
-        --rust-dark: #762a1d;
-        --gold: #e2b36e;
-        --muted: #5a5854;
-        --line: rgba(23, 27, 34, 0.16);
-        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+        --black: #261c19;
+        --ink: #302522;
+        --paper: #fff8ee;
+        --white: #fffdfa;
+        --grey: #e7ded3;
+        --muted: #6d6059;
+        --accent: #9e3f55;
+        --warm-bright: #f09a5b;
+        --glass-tint: #f5c9aa;
+        --sage: #dfe8ce;
+        --line: rgba(48, 37, 34, 0.22);
+        --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         --serif: Georgia, "Times New Roman", serif;
-        --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
       }
 
       * { box-sizing: border-box; }
 
-      html { scroll-padding-top: 6rem; }
+      html { scroll-padding-top: 5rem; }
 
       body {
         margin: 0;
@@ -46,486 +48,639 @@
       }
 
       ::selection {
-        color: var(--paper);
-        background: var(--rust);
+        color: var(--white);
+        background: var(--accent);
       }
 
       a { color: inherit; }
 
       a:focus-visible {
-        outline: 2px solid currentColor;
-        outline-offset: 0.3rem;
+        outline: 3px solid currentColor;
+        outline-offset: 0.25rem;
       }
+
+      img { max-width: 100%; }
 
       .skip-link {
         position: fixed;
         z-index: 100;
         top: 0.75rem;
         left: 0.75rem;
-        padding: 0.75rem 1rem;
-        color: white;
-        background: var(--ink);
+        padding: 0.8rem 1rem;
+        color: var(--black);
+        background: var(--white);
         transform: translateY(-160%);
       }
 
       .skip-link:focus { transform: translateY(0); }
 
       .site-header {
-        position: absolute;
+        position: fixed;
         z-index: 10;
-        top: 0;
-        right: 0;
-        left: 0;
-        display: flex;
+        top: 0.85rem;
+        right: 0.85rem;
+        left: 0.85rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
         align-items: center;
-        justify-content: space-between;
-        max-width: 96rem;
+        gap: 2rem;
+        max-width: calc(105rem - 1.7rem);
         margin: 0 auto;
-        padding: 1.65rem clamp(1.25rem, 4vw, 4.5rem);
+        padding: 0.78rem 0.9rem 0.78rem 1.1rem;
+        color: var(--ink);
+        background: rgba(255, 253, 250, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.88);
+        border-radius: 1.4rem;
+        box-shadow: 0 0.7rem 2.4rem rgba(72, 43, 27, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+        -webkit-backdrop-filter: blur(22px) saturate(1.35);
+        backdrop-filter: blur(22px) saturate(1.35);
       }
 
       .wordmark {
         display: inline-flex;
-        flex-direction: column;
-        gap: 0.18rem;
+        align-items: baseline;
+        gap: 0.65rem;
+        width: fit-content;
         text-decoration: none;
       }
 
       .wordmark__name {
-        font-family: var(--serif);
-        font-size: 1.34rem;
-        font-weight: 700;
-        letter-spacing: -0.03em;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
       }
 
       .wordmark__role {
         color: var(--muted);
-        font-size: 0.61rem;
-        font-weight: 750;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
+        font-size: 0.75rem;
       }
 
       nav {
         display: flex;
         align-items: center;
-        gap: clamp(0.9rem, 2vw, 1.9rem);
+        gap: clamp(1rem, 2vw, 2rem);
       }
 
       nav a {
-        font-size: 0.7rem;
-        font-weight: 750;
-        letter-spacing: 0.065em;
-        text-decoration: none;
-        text-transform: uppercase;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.35rem;
       }
 
-      nav a:not(.nav-cta) { border-bottom: 1px solid transparent; }
+      nav a:not(.nav-cta) { text-decoration-color: transparent; }
 
       .nav-cta {
         display: inline-flex;
         align-items: center;
         min-height: 2.75rem;
-        padding: 0.72rem 1rem;
-        color: var(--paper);
-        background: var(--ink);
+        padding: 0.75rem 1rem;
+        color: var(--white);
+        background: rgba(158, 63, 85, 0.92);
         border-radius: 999px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 0.35rem 1rem rgba(120, 50, 32, 0.16);
+        text-decoration: none;
         touch-action: manipulation;
         transition: transform 160ms var(--ease-out), background-color 160ms ease;
       }
 
       .hero {
         position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1.3fr) minmax(16rem, 0.7fr);
-        align-items: center;
-        gap: clamp(3rem, 8vw, 9rem);
-        min-height: 92vh;
-        max-width: 96rem;
-        margin: 0 auto;
-        padding: 10rem clamp(1.25rem, 6vw, 7rem) 6.5rem;
+        min-height: 94vh;
+        color: var(--ink);
+        background: var(--paper);
         overflow: hidden;
       }
 
       .hero::before {
         position: absolute;
-        z-index: -1;
-        top: 13%;
-        right: 14%;
-        width: min(30vw, 26rem);
-        height: min(30vw, 26rem);
-        border: 1px solid var(--line);
-        border-radius: 50%;
+        top: -18%;
+        right: -12%;
+        width: min(76vw, 68rem);
+        height: min(76vw, 68rem);
+        background:
+          radial-gradient(circle at 28% 28%, rgba(255, 184, 104, 0.64), transparent 31%),
+          radial-gradient(circle at 66% 26%, rgba(229, 105, 82, 0.42), transparent 34%),
+          radial-gradient(circle at 76% 72%, rgba(180, 205, 143, 0.52), transparent 32%);
         content: "";
+        filter: blur(48px);
+        pointer-events: none;
       }
 
-      .eyebrow, .kicker {
-        margin: 0 0 1.4rem;
-        color: var(--rust);
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.19em;
-        text-transform: uppercase;
+      .hero::after {
+        position: absolute;
+        top: 18%;
+        left: -14%;
+        width: 125%;
+        height: 32%;
+        background: linear-gradient(106deg, transparent 24%, rgba(255, 255, 255, 0.7) 43%, rgba(242, 171, 119, 0.2) 49%, rgba(197, 217, 164, 0.22) 54%, transparent 68%);
+        content: "";
+        mix-blend-mode: screen;
+        pointer-events: none;
+        transform: rotate(-4deg);
       }
 
-      .eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
+      .hero__inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(13rem, 20rem);
+        gap: clamp(3rem, 8vw, 9rem);
+        align-items: end;
+        min-height: 94vh;
+        max-width: 105rem;
+        margin: 0 auto;
+        padding: 9.5rem clamp(1.25rem, 4vw, 4.5rem) 3rem;
       }
 
-      .eyebrow span {
-        width: 2.8rem;
-        height: 1px;
-        background: currentColor;
+      .hero__copy { align-self: center; }
+
+      .hero__location {
+        margin: 0 0 1.75rem;
+        color: var(--accent);
+        font-size: clamp(1rem, 1.4vw, 1.25rem);
+        font-weight: 700;
       }
+
+      h1, h2, h3, p { overflow-wrap: break-word; }
 
       h1, h2 {
         margin: 0;
-        font-family: var(--serif);
-        font-weight: 400;
-        letter-spacing: -0.055em;
-        line-height: 0.92;
+        font-family: var(--sans);
+        font-weight: 800;
+        letter-spacing: -0.07em;
+        overflow-wrap: normal;
       }
 
-      h1 { max-width: 11ch; font-size: clamp(4.1rem, 8vw, 8.5rem); }
-      h2 { font-size: clamp(3.2rem, 5.8vw, 6.1rem); }
+      h1 {
+        max-width: 9.5ch;
+        font-size: clamp(4rem, 9.6vw, 10rem);
+        line-height: 0.86;
+      }
 
-      h1 em, h2 em {
-        color: var(--rust);
-        font-weight: 400;
+      h1 span {
+        color: var(--accent);
+        background: linear-gradient(92deg, #9e3f55 0%, #dc684b 27%, #e39d4d 52%, #879852 76%, #9e3f55 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        max-width: 11ch;
+        font-size: clamp(3.25rem, 7vw, 7.25rem);
+        line-height: 0.91;
       }
 
       .hero__intro {
-        max-width: 41rem;
-        margin: 2.5rem 0 0;
-        color: #45474a;
+        max-width: 42rem;
+        margin: 2.6rem 0 0;
+        color: #544740;
         font-family: var(--serif);
-        font-size: clamp(1.16rem, 1.85vw, 1.55rem);
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
         line-height: 1.55;
       }
 
       .hero__actions {
         display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
         align-items: center;
-        gap: 1.6rem;
-        margin-top: 2.45rem;
+        margin-top: 2.4rem;
       }
 
       .button {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        min-height: 2.8rem;
-        gap: 0.6rem;
-        padding: 0.95rem 1.35rem;
-        border-radius: 999px;
-        font-size: 0.72rem;
+        justify-content: space-between;
+        gap: 1.5rem;
+        min-height: 3rem;
+        padding: 0.9rem 1.1rem;
+        border: 2px solid currentColor;
+        font-size: 0.82rem;
         font-weight: 800;
-        letter-spacing: 0.06em;
         text-decoration: none;
-        text-transform: uppercase;
         touch-action: manipulation;
-        transition: transform 160ms var(--ease-out), background-color 160ms ease;
+        transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease;
       }
 
       .button:active, .nav-cta:active { transform: scale(0.97); }
-      .button--primary { color: white; background: var(--rust); }
+
+      .button--accent {
+        color: var(--white);
+        background: rgba(158, 63, 85, 0.92);
+        border-color: rgba(255, 255, 255, 0.48);
+        border-radius: 999px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0.6rem 1.7rem rgba(113, 54, 35, 0.18);
+        -webkit-backdrop-filter: blur(12px) saturate(1.2);
+        backdrop-filter: blur(12px) saturate(1.2);
+      }
+
+      .button--white {
+        color: var(--black);
+        background: var(--white);
+        border-color: var(--white);
+      }
 
       .text-link {
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.06em;
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 700;
         text-underline-offset: 0.35rem;
-        text-transform: uppercase;
       }
 
-      .casting-card {
+      .hero__portrait {
         position: relative;
-        justify-self: end;
-        width: min(20rem, 27vw);
-        min-width: 16rem;
+        align-self: end;
         margin: 0;
+        padding: 0.45rem;
+        background: rgba(255, 255, 255, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.78);
+        border-radius: 1.6rem;
+        box-shadow: 0 1.8rem 4.5rem rgba(104, 57, 34, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+        -webkit-backdrop-filter: blur(16px) saturate(1.22);
+        backdrop-filter: blur(16px) saturate(1.22);
       }
 
-      .portrait-frame {
-        position: relative;
-        width: 14.5rem;
-        margin: 0 auto;
-        padding: 0.75rem;
-        border: 1px solid var(--line);
-        border-radius: 50% 50% 0 0;
-      }
-
-      .portrait-frame::after {
-        position: absolute;
-        right: -0.8rem;
-        bottom: 1.6rem;
-        width: 3rem;
-        height: 3rem;
-        background: var(--gold);
-        border-radius: 50%;
-        content: "";
-      }
-
-      .portrait-frame picture { display: block; }
-
-      .portrait-frame img {
+      .hero__portrait img {
         display: block;
         width: 100%;
-        height: auto;
-        aspect-ratio: 1;
+        aspect-ratio: 3 / 4.3;
         object-fit: cover;
-        border-radius: 50% 50% 0 0;
+        border-radius: 1.15rem;
       }
 
-      .casting-card dl { margin: 1.5rem 0 0; border-top: 1px solid var(--line); }
+      figcaption {
+        margin-top: 0.65rem;
+        color: inherit;
+        font-size: 0.72rem;
+        line-height: 1.4;
+      }
 
-      .casting-card dl div {
+      .hero__portrait figcaption { padding: 0 0.25rem 0.1rem; color: var(--muted); }
+
+      .hero__facts {
+        grid-column: 1 / -1;
         display: grid;
-        grid-template-columns: 5.2rem 1fr;
-        gap: 0.8rem;
-        padding: 0.78rem 0;
-        border-bottom: 1px solid var(--line);
+        grid-template-columns: repeat(4, 1fr);
+        margin: 2rem 0 0;
+        padding: 1rem 0 0;
+        border-top: 1px solid var(--line);
       }
 
-      .casting-card dt, .facts dt, .equipment > p, .booth-note > p {
+      .hero__facts div { padding-right: 1.5rem; }
+
+      .hero__facts dt {
+        margin-bottom: 0.35rem;
         color: var(--muted);
-        font-size: 0.64rem;
-        font-weight: 800;
-        letter-spacing: 0.13em;
-        text-transform: uppercase;
+        font-size: 0.68rem;
       }
 
-      .casting-card dd, .facts dd { margin: 0; font-family: var(--serif); font-size: 0.96rem; line-height: 1.35; }
-
-      .proof {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        color: var(--paper);
-        background: var(--ink);
-      }
-
-      .proof p {
-        display: grid;
-        gap: 0.42rem;
+      .hero__facts dd {
         margin: 0;
-        padding: 1.8rem clamp(1.25rem, 3.5vw, 4rem);
-        border-right: 1px solid rgba(255, 255, 255, 0.13);
-        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1.35;
       }
-
-      .proof p:last-child { border: 0; }
-      .proof strong { font-family: var(--serif); font-size: clamp(1.05rem, 1.6vw, 1.3rem); font-weight: 400; }
-      .proof span { color: rgba(243, 239, 231, 0.72); font-size: 0.68rem; letter-spacing: 0.05em; }
 
       .section {
         display: grid;
-        grid-template-columns: minmax(17rem, 0.82fr) minmax(0, 1.18fr);
+        grid-template-columns: minmax(11rem, 0.34fr) minmax(0, 1fr);
         gap: clamp(3rem, 8vw, 9rem);
-        max-width: 96rem;
+        max-width: 105rem;
         margin: 0 auto;
-        padding: clamp(6.5rem, 10vw, 10rem) clamp(1.25rem, 6vw, 7rem);
+        padding: clamp(6rem, 10vw, 10rem) clamp(1.25rem, 4vw, 4.5rem);
       }
 
-      .section-heading { align-self: start; }
-
-      .approach__content, .story__content, .studio__content { max-width: 43rem; padding-top: 2.35rem; }
+      .section__label {
+        margin: 0;
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
 
       .lead {
-        margin: 0;
-        color: var(--ink);
+        max-width: 43rem;
+        margin: 2.2rem 0 0;
         font-family: var(--serif);
-        font-size: clamp(1.45rem, 2.3vw, 1.95rem);
-        line-height: 1.45;
+        font-size: clamp(1.4rem, 2.4vw, 2rem);
+        line-height: 1.5;
       }
 
-      .principles { margin-top: 2.6rem; border-top: 1px solid var(--line); }
+      .method {
+        max-width: 57rem;
+        margin: 3.5rem 0 0;
+        padding: 0;
+        border-top: 2px solid var(--ink);
+        list-style: none;
+      }
 
-      .principles article {
+      .method li {
         display: grid;
-        grid-template-columns: 2rem 1fr;
-        gap: 1.2rem;
+        grid-template-columns: 3.5rem minmax(0, 1fr);
+        gap: 1.5rem;
         padding: 1.5rem 0;
         border-bottom: 1px solid var(--line);
       }
 
-      .principles article > span, .range__number {
-        padding-top: 0.35rem;
-        color: var(--rust);
-        font-family: var(--serif);
-        font-size: 0.8rem;
-        font-style: italic;
+      .method span {
+        padding-top: 0.2rem;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 800;
       }
 
-      .principles h3, .range h3 {
-        margin: 0 0 0.45rem;
-        font-family: var(--serif);
-        font-size: 1.6rem;
-        font-weight: 400;
+      .method h3 {
+        margin: 0 0 0.4rem;
+        font-size: clamp(1.4rem, 2vw, 1.8rem);
+        letter-spacing: -0.035em;
       }
 
-      .principles p, .story__copy p:not(.lead), .range article p, .section-intro, .studio__content > p:not(.lead) {
+      .method p {
+        max-width: 44rem;
         margin: 0;
-        color: #4b4c4e;
-        line-height: 1.7;
+        color: #4d5055;
+        line-height: 1.65;
       }
 
-      .section--dark {
-        max-width: none;
-        color: var(--paper);
-        background: var(--rust-dark);
+      .story {
+        color: var(--ink);
+        background: var(--sage);
       }
 
-      .section--dark .section-heading, .section--dark .story__content { max-width: 43rem; }
-      .section--dark .section-heading { justify-self: end; }
-      .section--dark .kicker, .section--dark h2 em { color: var(--gold); }
-      .section--dark .lead { color: var(--paper); }
-      .section--dark .story__copy p:not(.lead) { color: rgba(243, 239, 231, 0.82); }
+      .story .section {
+        grid-template-columns: minmax(0, 0.92fr) minmax(19rem, 0.78fr);
+      }
 
-      .story__copy { display: grid; gap: 1.35rem; }
+      .story__copy { align-self: center; }
 
-      .booth-note {
+      .story .section__label { color: #753d2a; }
+
+      .story h2 { max-width: 11ch; }
+
+      .story__text {
+        display: grid;
+        gap: 1.3rem;
+        max-width: 43rem;
         margin-top: 2.5rem;
-        padding: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.22);
       }
 
-      .booth-note > p { margin: 0 0 1rem; color: var(--gold); }
-      .booth-note ul { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
-      .booth-note li { position: relative; padding-left: 1.15rem; color: rgba(243, 239, 231, 0.84); line-height: 1.5; }
-      .booth-note li::before { position: absolute; top: 0; left: 0; color: var(--gold); content: "·"; }
-
-      .section-intro { max-width: 28rem; margin-top: 2rem; }
-      .range__grid { display: grid; padding-top: 1.9rem; }
-
-      .range article {
-        position: relative;
-        display: grid;
-        grid-template-columns: 2.2rem 8rem 1fr;
-        gap: 1rem;
-        align-items: start;
-        padding: 1.65rem 0;
-        border-top: 1px solid var(--line);
+      .story__text p {
+        margin: 0;
+        color: #4a493e;
+        font-size: 1.06rem;
+        line-height: 1.72;
       }
 
-      .range article:last-child { border-bottom: 1px solid var(--line); }
-      .range h3 { margin: 0; }
+      .story__text p:first-child {
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+        line-height: 1.5;
+      }
 
-      .studio { max-width: none; background: var(--paper-deep); }
-      .studio .section-heading, .studio__content { max-width: 43rem; }
-      .studio .section-heading { justify-self: end; }
-
-      .facts { margin: 2.5rem 0 0; border-top: 1px solid var(--line); }
-
-      .facts div {
+      .story__images {
         display: grid;
-        grid-template-columns: 9rem 1fr;
-        gap: 1rem;
-        padding: 1.1rem 0;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+        gap: 1.25rem;
+        align-items: end;
+        align-self: end;
+      }
+
+      .story__images figure { margin: 0; }
+
+      .story__images figure:last-child { margin-bottom: 0; }
+
+      .story__images img {
+        display: block;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 1.5rem 3rem rgba(58, 67, 43, 0.16);
+      }
+
+      .story__images figure:first-child img { aspect-ratio: 1; object-fit: cover; }
+      .story__images figure:last-child img { aspect-ratio: 2 / 3.3; object-fit: cover; }
+      .story__images figcaption { color: #5d614f; }
+
+      .range .section { padding-bottom: clamp(7rem, 12vw, 12rem); }
+
+      .range__intro {
+        max-width: 45rem;
+        margin: 2.2rem 0 0;
+        color: #4d5055;
+        font-family: var(--serif);
+        font-size: clamp(1.25rem, 2vw, 1.7rem);
+        line-height: 1.55;
+      }
+
+      .range__list {
+        margin-top: 4rem;
+        border-top: 2px solid var(--ink);
+      }
+
+      .range__item {
+        display: grid;
+        grid-template-columns: minmax(8rem, 0.38fr) minmax(0, 1fr);
+        gap: 2rem;
+        padding: 2.25rem 0;
         border-bottom: 1px solid var(--line);
       }
 
-      .facts dd { font-size: 1.08rem; font-weight: 700; }
+      .range__item h3 {
+        margin: 0;
+        font-size: clamp(2.2rem, 4vw, 4.5rem);
+        letter-spacing: -0.06em;
+        line-height: 0.95;
+      }
 
-      .equipment { margin-top: 2.3rem; }
-      .equipment > p { margin: 0 0 1rem; }
+      .range__item p {
+        max-width: 44rem;
+        margin: 0;
+        color: #4d5055;
+        line-height: 1.7;
+      }
+
+      .studio {
+        color: var(--white);
+        background: var(--black);
+      }
+
+      .studio .section__label { color: var(--warm-bright); }
+
+      .studio__intro {
+        max-width: 45rem;
+        margin: 2.3rem 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-family: var(--serif);
+        font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+        line-height: 1.55;
+      }
+
+      .studio__facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin: 3.5rem 0 0;
+        border-top: 2px solid var(--white);
+      }
+
+      .studio__facts div {
+        padding: 1.4rem 1.5rem 1.4rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .studio__facts div:nth-child(odd) { margin-right: 1.5rem; }
+
+      .studio__facts dt {
+        margin-bottom: 0.4rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.7rem;
+      }
+
+      .studio__facts dd {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .equipment {
+        margin-top: 3rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .equipment p {
+        margin: 0 0 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.7rem;
+      }
 
       .equipment ul {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.6rem;
+        gap: 0.5rem 1.5rem;
         margin: 0;
         padding: 0;
         list-style: none;
       }
 
       .equipment li {
-        padding: 0.65rem 0.85rem;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        font-size: 0.77rem;
-        font-weight: 700;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 0.92rem;
       }
 
       .contact {
+        position: relative;
+        padding: clamp(6rem, 12vw, 11rem) clamp(1.25rem, 4vw, 4.5rem);
+        color: var(--ink);
+        background: linear-gradient(115deg, #ef8d5e 0%, #f4c279 35%, #e8dca4 58%, #cadca8 78%, #efb3a0 100%);
+        overflow: hidden;
+      }
+
+      .contact::before {
+        position: absolute;
+        inset: -40% 30% 20% -20%;
+        background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, 0.64) 50%, transparent 70%);
+        content: "";
+        filter: blur(22px);
+        pointer-events: none;
+      }
+
+      .contact__inner {
+        position: relative;
+        z-index: 1;
         display: grid;
-        justify-items: center;
-        padding: clamp(6.5rem, 12vw, 11rem) 1.25rem;
-        color: var(--paper);
-        background: var(--ink);
-        text-align: center;
+        grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.38fr);
+        gap: clamp(3rem, 8vw, 8rem);
+        align-items: end;
+        max-width: 96rem;
+        margin: 0 auto;
       }
 
-      .contact .kicker { color: var(--gold); }
-      .contact h2 em { color: var(--gold); }
+      .contact h2 { max-width: 12ch; }
 
-      .contact > p:not(.kicker) {
-        max-width: 37rem;
-        margin: 2rem 0;
-        color: rgba(243, 239, 231, 0.74);
-        line-height: 1.7;
+      .contact__aside {
+        padding-top: 1.5rem;
+        border-top: 2px solid var(--ink);
       }
 
-      .button--light { color: var(--ink); background: var(--paper); }
-
-      @media (hover: hover) and (pointer: fine) {
-        nav a:not(.nav-cta):hover { border-color: currentColor; }
-        .nav-cta:hover { background-color: var(--ink-soft); }
-        .button--primary:hover { background-color: var(--rust-dark); }
-        .button--light:hover { background-color: white; }
+      .contact__aside p {
+        margin: 0 0 1.6rem;
+        color: #4d4038;
+        line-height: 1.65;
       }
 
       footer {
         display: grid;
         grid-template-columns: 1fr auto auto;
-        align-items: end;
         gap: 2rem;
-        padding: 2rem clamp(1.25rem, 4vw, 4rem);
-        color: var(--muted);
-        background: var(--paper);
-        font-size: 0.66rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+        align-items: end;
+        padding: 2rem clamp(1.25rem, 4vw, 4.5rem);
+        color: rgba(255, 255, 255, 0.58);
+        background: var(--black);
+        font-size: 0.72rem;
       }
 
-      .wordmark--footer .wordmark__name { color: var(--ink); text-transform: none; }
-      .wordmark--footer .wordmark__role { font-size: 0.56rem; }
+      footer .wordmark__name { color: var(--white); }
+      footer .wordmark__role { color: rgba(255, 255, 255, 0.58); }
+      footer p { margin: 0; }
 
-      @media (max-width: 980px) {
+      @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+        .site-header { background: rgba(255, 253, 250, 0.96); }
+        .hero__portrait { background: rgba(255, 253, 250, 0.88); }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        nav a:not(.nav-cta):hover { text-decoration-color: currentColor; }
+        .nav-cta:hover { background: var(--accent); }
+        .button--accent:hover { color: var(--accent); background: var(--white); }
+        .button--white:hover { color: var(--white); background: var(--black); }
+      }
+
+      @media (max-width: 900px) {
         nav a:not(.nav-cta) { display: none; }
-        .hero { grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.85fr); }
+        .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(11rem, 15rem); }
+        .story .section { grid-template-columns: 1fr; }
+        .story__images { max-width: 36rem; }
+        .contact__inner { grid-template-columns: 1fr; }
+        .contact__aside { max-width: 36rem; }
       }
 
-      @media (max-width: 780px) {
-        .hero { grid-template-columns: 1fr; min-height: auto; }
-        .casting-card { justify-self: start; width: min(100%, 24rem); }
-        .portrait-frame { width: 12rem; margin: 0; }
-        .section { grid-template-columns: 1fr; }
-        .section--dark .section-heading, .studio .section-heading { justify-self: start; }
-        .section--dark .section-heading, .section--dark .story__content, .studio .section-heading, .studio__content { max-width: none; }
-      }
-
-      @media (max-width: 560px) {
-        .site-header { padding-top: 1.1rem; }
-        .wordmark__role { font-size: 0.51rem; }
-        .nav-cta { min-height: 2.5rem; padding: 0.62rem 0.78rem; font-size: 0.59rem; }
-        .hero { padding-top: 8.2rem; padding-bottom: 4.5rem; }
-        h1 { font-size: clamp(3.5rem, 16.6vw, 5rem); }
-        h2 { font-size: clamp(2.6rem, 13.5vw, 3.2rem); }
-        .hero__actions { align-items: flex-start; flex-direction: column; }
-        .proof { grid-template-columns: 1fr; padding: 0.8rem 0; }
-        .proof p { padding: 0.8rem 1.25rem; border: 0; }
-        .proof span { display: none; }
-        .casting-card dl div { grid-template-columns: 4.5rem 1fr; }
-        .range article { grid-template-columns: 1.7rem 1fr; }
-        .range article p { grid-column: 2; }
-        .facts div { grid-template-columns: 1fr; gap: 0.3rem; }
+      @media (max-width: 700px) {
+        .site-header { padding: 0.65rem 0.7rem 0.65rem 0.85rem; }
+        .wordmark { align-items: flex-start; flex-direction: column; gap: 0.05rem; }
+        .wordmark__role { font-size: 0.64rem; }
+        .nav-cta { min-height: 2.5rem; padding: 0.65rem 0.75rem; font-size: 0.7rem; }
+        .hero__inner {
+          grid-template-columns: 1fr;
+          align-items: start;
+          min-height: auto;
+          padding-top: 8.8rem;
+          padding-bottom: 2rem;
+        }
+        .hero__copy { align-self: start; }
+        h1 { max-width: 8ch; font-size: clamp(3.8rem, 18.2vw, 6.6rem); }
+        .hero__portrait { width: min(66vw, 17rem); }
+        .hero__facts { grid-template-columns: repeat(2, 1fr); gap: 1.25rem 1rem; }
+        .section { grid-template-columns: 1fr; gap: 2rem; }
+        .story .section { gap: 3.5rem; }
+        .range__item { grid-template-columns: 1fr; gap: 1rem; }
+        .studio__facts { grid-template-columns: 1fr; }
+        .studio__facts div:nth-child(odd) { margin-right: 0; }
         footer { grid-template-columns: 1fr; gap: 0.8rem; }
       }
 
+      @media (max-width: 380px) {
+        h1 { font-size: clamp(3.45rem, 17.4vw, 4.2rem); }
+        h2 { font-size: clamp(3rem, 15vw, 4.1rem); }
+        .hero__actions { align-items: flex-start; flex-direction: column; }
+        .method li { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.75rem; }
+        .story__images { grid-template-columns: 1fr; }
+        .story__images figure:last-child { width: 68%; margin: -2.5rem 0 0 auto; }
+      }
+
       @media (prefers-reduced-motion: reduce) {
-        .button, .nav-cta { transition: background-color 160ms ease; }
+        .button, .nav-cta { transition: background-color 160ms ease, color 160ms ease; }
         .button:active, .nav-cta:active { transform: none; }
       }
     </style>
@@ -538,7 +693,7 @@
         "url": "https://ollyjeffers.co.uk/",
         "image": "https://ollyjeffers.co.uk/assets/olly-jeffers.webp",
         "sameAs": ["https://www.linkedin.com/in/ollyjeffers/"],
-        "alumniOf": {"@type": "EducationalOrganization", "name": "Drama Centre London"},
+        "alumniOf": {"@type": "EducationalOrganization", "name": "Drama Centre"},
         "homeLocation": {"@type": "Place", "name": "London, United Kingdom"},
         "knowsLanguage": "en-GB"
       }
@@ -553,145 +708,33 @@
         <span class="wordmark__role">British audiobook narrator</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#approach">Approach</a>
+        <a href="#work">The work</a>
         <a href="#story">Story</a>
         <a href="#range">Range</a>
         <a href="#studio">Studio</a>
-        <a class="nav-cta" href="https://www.linkedin.com/in/ollyjeffers/" target="_blank" rel="noopener noreferrer">Discuss a project <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="https://www.linkedin.com/in/ollyjeffers/" target="_blank" rel="noopener noreferrer">Discuss a book&nbsp; ↗</a>
       </nav>
     </header>
 
     <main id="main" tabindex="-1">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero__copy">
-          <p class="eyebrow"><span aria-hidden="true"></span> London · British English</p>
-          <h1 id="hero-title">Clear thinking.<br><em>Human storytelling.</em></h1>
-          <p class="hero__intro">Olly Jeffers is an actor-trained British narrator who brings a singer’s ear, a communicator’s clarity and a storyteller’s instinct to every page.</p>
-          <div class="hero__actions">
-            <a class="button button--primary" href="https://www.linkedin.com/in/ollyjeffers/" target="_blank" rel="noopener noreferrer">Discuss your book <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#approach">How I approach the work <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-
-        <aside class="casting-card" aria-label="Olly Jeffers at a glance">
-          <div class="portrait-frame">
-            <picture>
-              <source type="image/webp" srcset="assets/olly-jeffers-166.webp 166w, assets/olly-jeffers.webp 200w" sizes="(max-width: 780px) 168px, 208px">
-              <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="Olly Jeffers in black tie" fetchpriority="high">
-            </picture>
-          </div>
-          <dl>
-            <div>
-              <dt>Training</dt>
-              <dd>Drama Centre London</dd>
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="hero__location">London · British English</p>
+            <h1 id="hero-title">A British voice for books worth <span>listening to.</span></h1>
+            <p class="hero__intro">Olly Jeffers is a London-based narrator, trained as an actor and singer at Drama Centre. He brings precision to ideas, warmth to character and respect for the writing.</p>
+            <div class="hero__actions">
+              <a class="button button--accent" href="https://www.linkedin.com/in/ollyjeffers/" target="_blank" rel="noopener noreferrer">Talk about a book <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="#story">Read the story ↓</a>
             </div>
-            <div>
-              <dt>Voice</dt>
-              <dd>British English · RP / standard British</dd>
-            </div>
-            <div>
-              <dt>Recording</dt>
-              <dd>Home setup or London studio</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section class="proof" aria-label="Professional background">
-        <p><strong>Actor &amp; singer trained</strong><span>Performance, language and musicality</span></p>
-        <p><strong>10+ years communicating ideas</strong><span>Complex subjects, global audiences</span></p>
-        <p><strong>Story-led, not category-limited</strong><span>Nonfiction, real lives and imagined worlds</span></p>
-      </section>
-
-      <section class="approach section" id="approach" aria-labelledby="approach-title">
-        <div class="section-heading">
-          <p class="kicker">01 · Approach</p>
-          <h2 id="approach-title">Interpret first.<br><em>Perform second.</em></h2>
-        </div>
-        <div class="approach__content">
-          <p class="lead">The best narration is not a performance laid on top of a book. It is an interpretation built from inside it.</p>
-          <div class="principles">
-            <article>
-              <span>01</span>
-              <div>
-                <h3>Read for structure</h3>
-                <p>Understand the argument, the narrative turns and the purpose of each passage before deciding how it should sound.</p>
-              </div>
-            </article>
-            <article>
-              <span>02</span>
-              <div>
-                <h3>Listen for the person</h3>
-                <p>Find the human stakes beneath the information—the curiosity, pressure, wit or vulnerability carrying the words.</p>
-              </div>
-            </article>
-            <article>
-              <span>03</span>
-              <div>
-                <h3>Serve the sentence</h3>
-                <p>Use clarity, rhythm and restraint so the listener remains inside the writing, not conscious of a narrator performing at them.</p>
-              </div>
-            </article>
           </div>
-        </div>
-      </section>
 
-      <section class="story section section--dark" id="story" aria-labelledby="story-title">
-        <div class="section-heading">
-          <p class="kicker">02 · The story</p>
-          <h2 id="story-title">An actor’s training.<br><em>A communicator’s mileage.</em></h2>
-        </div>
-        <div class="story__content">
-          <div class="story__copy">
-            <p class="lead">I trained as an actor and singer, including an Associate Diploma in Acting at Drama Centre London. My career then moved into global learning and leadership development.</p>
-            <p>For more than a decade, I have worked with complex subjects and global audiences—explaining ideas, presenting publicly and helping people find their way into unfamiliar material.</p>
-            <p>Alongside that career, I continued voice-over and stage work. Narration is where those paths now meet: performance, language, subject fluency and a deep interest in how stories hold attention.</p>
-          </div>
-          <div class="booth-note">
-            <p>What that means in the booth</p>
-            <ul>
-              <li>Comfort with technical language and unfamiliar ideas</li>
-              <li>An actor-trained ear for rhythm, tone and subtext</li>
-              <li>Attention to argument, pacing and narrative shape</li>
-              <li>Range beyond specialist nonfiction</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+          <figure class="hero__portrait">
+            <img src="assets/olly-jeffers-speaking.webp" width="600" height="860" alt="Olly Jeffers" fetchpriority="high">
+            <figcaption>Olly Jeffers · London</figcaption>
+          </figure>
 
-      <section class="range section" id="range" aria-labelledby="range-title">
-        <div class="section-heading">
-          <p class="kicker">03 · Range</p>
-          <h2 id="range-title">A clear centre.<br><em>No artificial ceiling.</em></h2>
-          <p class="section-intro">Intelligent narrative nonfiction is the clearest point of difference. It is not the edge of the map.</p>
-        </div>
-        <div class="range__grid">
-          <article>
-            <span class="range__number">I</span>
-            <h3>Ideas</h3>
-            <p>Technology, AI, psychology, business, learning and popular science—books where understanding the thought is part of telling the story.</p>
-          </article>
-          <article>
-            <span class="range__number">II</span>
-            <h3>Lives</h3>
-            <p>Biography, memoir and narrative history, with attention to the person beneath the events and the emotional temperature of the truth.</p>
-          </article>
-          <article>
-            <span class="range__number">III</span>
-            <h3>Worlds</h3>
-            <p>Literary and contemporary fiction, speculative fiction and intelligent, character-led thrillers—stories that reward precision and restraint.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="studio section" id="studio" aria-labelledby="studio-title">
-        <div class="section-heading">
-          <p class="kicker">04 · Voice &amp; studio</p>
-          <h2 id="studio-title">Prepared in London.<br><em>Flexible about the room.</em></h2>
-        </div>
-        <div class="studio__content">
-          <p class="lead">Home recording is available, and I am happy to travel to a professional studio when the book or production requires it.</p>
-          <dl class="facts">
+          <dl class="hero__facts">
             <div>
               <dt>Voice</dt>
               <dd>British English</dd>
@@ -701,40 +744,159 @@
               <dd>RP / standard British</dd>
             </div>
             <div>
-              <dt>Location</dt>
-              <dd>London, United Kingdom</dd>
+              <dt>Recording</dt>
+              <dd>Home setup</dd>
             </div>
             <div>
-              <dt>Availability</dt>
-              <dd>Home recording or travel to studio</dd>
+              <dt>Also available</dt>
+              <dd>Travel to studio</dd>
             </div>
           </dl>
-          <div class="equipment">
-            <p>Recording equipment</p>
-            <ul>
-              <li>RØDE NT1-A</li>
-              <li>Shure KSM</li>
-              <li>Shure SM58</li>
-              <li>M-Audio Fast Track Ultra</li>
-            </ul>
+        </div>
+      </section>
+
+      <section class="approach" id="work" aria-labelledby="work-title">
+        <div class="section">
+          <p class="section__label">The work</p>
+          <div>
+            <h2 id="work-title">The writing comes first.</h2>
+            <p class="lead">Good narration begins with understanding what the book is doing. The performance should make that clearer without flattening its character.</p>
+            <ol class="method">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Know where it is going</h3>
+                  <p>Before recording, I work out the shape of the argument, the turns in the story and the moments where the listener may need a little more help.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Listen for the person</h3>
+                  <p>Every passage has a point of view. I listen for the curiosity, pressure, wit or vulnerability behind it and let that shape the reading.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Keep the delivery honest</h3>
+                  <p>Clarity matters, but so does restraint. The aim is to keep the listener inside the book rather than draw attention to the narrator.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="section">
+          <div class="story__copy">
+            <p class="section__label">How I got here</p>
+            <h2 id="story-title">Performance met real life.</h2>
+            <div class="story__text">
+              <p>I trained as an actor and singer at Drama Centre. My career then moved into corporate learning and leadership development.</p>
+              <p>For more than a decade, I learnt how to bring people with me through complicated subjects, present to audiences and make unfamiliar ideas feel manageable.</p>
+              <p>I kept up voice-over and stage work alongside that career. Narration is where the two strands now meet properly. The performance training matters, and so do the years spent making difficult things clear without talking down to people.</p>
+            </div>
+          </div>
+
+          <div class="story__images" role="group" aria-label="Photographs of Olly Jeffers">
+            <figure>
+              <picture>
+                <source type="image/webp" srcset="assets/olly-jeffers-166.webp 166w, assets/olly-jeffers.webp 200w" sizes="(max-width: 700px) 60vw, 270px">
+                <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="Olly Jeffers in black tie">
+              </picture>
+              <figcaption>Actor and singer trained at Drama Centre</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/olly-jeffers-evening.webp" width="520" height="860" alt="Olly Jeffers at a London industry evening">
+              <figcaption>At an industry evening in London</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="range" id="range" aria-labelledby="range-title">
+        <div class="section">
+          <p class="section__label">Range</p>
+          <div>
+            <h2 id="range-title">Books I want to read.</h2>
+            <p class="range__intro">Intelligent narrative nonfiction is a natural fit, but it is not the limit. A good story is a good story.</p>
+            <div class="range__list">
+              <article class="range__item">
+                <h3>Ideas</h3>
+                <p>Technology, AI, psychology, business, learning and popular science. Work where understanding the subject is part of telling the story.</p>
+              </article>
+              <article class="range__item">
+                <h3>Lives</h3>
+                <p>Biography, memoir and narrative history. The voice should reveal the person without leaning too hard on sentiment.</p>
+              </article>
+              <article class="range__item">
+                <h3>Worlds</h3>
+                <p>Literary and contemporary fiction, speculative fiction and character-led thrillers. Precise storytelling with room for character.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="studio" id="studio" aria-labelledby="studio-title">
+        <div class="section">
+          <p class="section__label">Voice &amp; studio</p>
+          <div>
+            <h2 id="studio-title">In London. Ready to record.</h2>
+            <p class="studio__intro">Home recording is available. I am also happy to travel to a professional studio when the book or production calls for it.</p>
+            <dl class="studio__facts">
+              <div>
+                <dt>Voice</dt>
+                <dd>British English</dd>
+              </div>
+              <div>
+                <dt>Accent</dt>
+                <dd>RP / standard British</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>London, United Kingdom</dd>
+              </div>
+              <div>
+                <dt>Availability</dt>
+                <dd>Home recording or travel to studio</dd>
+              </div>
+            </dl>
+            <div class="equipment">
+              <p>Recording equipment</p>
+              <ul>
+                <li>RØDE NT1-A</li>
+                <li>Shure KSM</li>
+                <li>Shure SM58</li>
+                <li>M-Audio Fast Track Ultra</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="contact" aria-labelledby="contact-title">
-        <p class="kicker">Have a book in mind?</p>
-        <h2 id="contact-title">What does it need<br><em>from its narrator?</em></h2>
-        <p>Share the title, genre, approximate word count, tone and production schedule. I can record from home in London or travel to a professional studio.</p>
-        <a class="button button--light" href="https://www.linkedin.com/in/ollyjeffers/" target="_blank" rel="noopener noreferrer">Discuss the book on LinkedIn <span aria-hidden="true">↗</span></a>
+        <div class="contact__inner">
+          <div>
+            <p class="section__label">Have a book in mind?</p>
+            <h2 id="contact-title">Tell me what it needs to sound like.</h2>
+          </div>
+          <div class="contact__aside">
+            <p>Send the title, genre, approximate word count, tone and production schedule. I will come back to you with an honest view of fit and availability.</p>
+            <a class="button button--white" href="https://www.linkedin.com/in/ollyjeffers/" target="_blank" rel="noopener noreferrer">Discuss it on LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer>
-      <div class="wordmark wordmark--footer">
+      <a class="wordmark" href="#top">
         <span class="wordmark__name">Olly Jeffers</span>
-        <span class="wordmark__role">British audiobook narrator · London</span>
-      </div>
-      <p>British English · RP / standard British</p>
+        <span class="wordmark__role">British audiobook narrator</span>
+      </a>
+      <p>London · British English</p>
       <p>© <span id="year">2026</span> Olly Jeffers</p>
     </footer>
 
