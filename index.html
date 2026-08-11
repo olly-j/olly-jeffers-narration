@@ -305,19 +305,13 @@
       .hero__portrait img {
         display: block;
         width: 100%;
-        aspect-ratio: 3 / 4.3;
-        object-fit: cover;
+        height: auto;
+        aspect-ratio: 1;
+        object-fit: contain;
         border-radius: 1.15rem;
       }
 
-      figcaption {
-        margin-top: 0.65rem;
-        color: inherit;
-        font-size: 0.72rem;
-        line-height: 1.4;
-      }
-
-      .hero__portrait figcaption { padding: 0 0.25rem 0.1rem; color: var(--muted); }
+      .hero__portrait picture { display: block; }
 
       .hero__facts {
         grid-column: 1 / -1;
@@ -440,27 +434,22 @@
       }
 
       .story__images {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
-        gap: 1.25rem;
-        align-items: end;
-        align-self: end;
+        width: min(100%, 25rem);
+        margin: 0;
+        justify-self: end;
+        align-self: center;
       }
 
       .story__images figure { margin: 0; }
-
-      .story__images figure:last-child { margin-bottom: 0; }
 
       .story__images img {
         display: block;
         width: 100%;
         height: auto;
+        aspect-ratio: 3 / 4.3;
+        object-fit: cover;
         box-shadow: 0 1.5rem 3rem rgba(58, 67, 43, 0.16);
       }
-
-      .story__images figure:first-child img { aspect-ratio: 1; object-fit: cover; }
-      .story__images figure:last-child img { aspect-ratio: 2 / 3.3; object-fit: cover; }
-      .story__images figcaption { color: #5d614f; }
 
       .range .section { padding-bottom: clamp(7rem, 12vw, 12rem); }
 
@@ -641,7 +630,7 @@
         nav a:not(.nav-cta) { display: none; }
         .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(11rem, 15rem); }
         .story .section { grid-template-columns: 1fr; }
-        .story__images { max-width: 36rem; }
+        .story__images { width: min(74vw, 25rem); justify-self: start; }
         .contact__inner { grid-template-columns: 1fr; }
         .contact__aside { max-width: 36rem; }
       }
@@ -675,8 +664,6 @@
         h2 { font-size: clamp(3rem, 15vw, 4.1rem); }
         .hero__actions { align-items: flex-start; flex-direction: column; }
         .method li { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.75rem; }
-        .story__images { grid-template-columns: 1fr; }
-        .story__images figure:last-child { width: 68%; margin: -2.5rem 0 0 auto; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -730,8 +717,10 @@
           </div>
 
           <figure class="hero__portrait">
-            <img src="assets/olly-jeffers-speaking-360.webp" srcset="assets/olly-jeffers-speaking-360.webp 360w, assets/olly-jeffers-speaking.webp 600w" sizes="(max-width: 700px) min(66vw, 272px), 320px" width="360" height="516" alt="Olly Jeffers" fetchpriority="high">
-            <figcaption>Olly Jeffers · London</figcaption>
+            <picture>
+              <source type="image/webp" srcset="assets/olly-jeffers-166.webp 166w, assets/olly-jeffers.webp 200w" sizes="(max-width: 700px) min(66vw, 272px), 320px">
+              <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="" fetchpriority="high">
+            </picture>
           </figure>
 
           <dl class="hero__facts">
@@ -800,17 +789,9 @@
             </div>
           </div>
 
-          <div class="story__images" role="group" aria-label="Photographs of Olly Jeffers">
+          <div class="story__images">
             <figure>
-              <picture>
-                <source type="image/webp" srcset="assets/olly-jeffers-166.webp 166w, assets/olly-jeffers.webp 200w" sizes="(max-width: 700px) 60vw, 270px">
-                <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="Olly Jeffers in black tie" loading="lazy">
-              </picture>
-              <figcaption>Actor and singer trained at Drama Centre</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/olly-jeffers-evening-280.webp" srcset="assets/olly-jeffers-evening-280.webp 280w, assets/olly-jeffers-evening.webp 520w" sizes="(max-width: 700px) 38vw, 240px" width="280" height="463" alt="Olly Jeffers at a London industry evening" loading="lazy">
-              <figcaption>At an industry evening in London</figcaption>
+              <img src="assets/olly-jeffers-speaking-360.webp" srcset="assets/olly-jeffers-speaking-360.webp 360w, assets/olly-jeffers-speaking.webp 600w" sizes="(max-width: 900px) min(74vw, 400px), 400px" width="360" height="516" alt="" loading="lazy">
             </figure>
           </div>
         </div>
