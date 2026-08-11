@@ -105,6 +105,8 @@
         gap: 0.65rem;
         width: fit-content;
         text-decoration: none;
+        touch-action: manipulation;
+        transition: opacity 120ms var(--ease-out);
       }
 
       .wordmark__name {
@@ -131,7 +133,11 @@
         text-underline-offset: 0.34rem;
       }
 
-      nav a:not(.nav-cta) { text-decoration-color: transparent; }
+      nav a:not(.nav-cta) {
+        text-decoration-color: transparent;
+        touch-action: manipulation;
+        transition: opacity 120ms var(--ease-out);
+      }
 
       .nav-cta,
       .button {
@@ -168,7 +174,13 @@
         font-size: 0.82rem;
         font-weight: 700;
         text-underline-offset: 0.34rem;
+        touch-action: manipulation;
+        transition: opacity 120ms var(--ease-out);
       }
+
+      .wordmark:active,
+      nav a:not(.nav-cta):active,
+      .text-link:active { opacity: 0.62; }
 
       .hero {
         position: relative;
@@ -334,6 +346,65 @@
         line-height: 1.35;
       }
 
+      .voice-note {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 253, 248, 0.42);
+      }
+
+      .voice-note__inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+        gap: clamp(3rem, 9vw, 10rem);
+        align-items: center;
+        max-width: 100rem;
+        margin: 0 auto;
+        padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 4.5vw, 4.75rem);
+      }
+
+      .voice-note p {
+        max-width: 28ch;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(1.45rem, 2.6vw, 2.35rem);
+        line-height: 1.38;
+      }
+
+      .voice-note strong {
+        color: var(--berry);
+        font-weight: 400;
+      }
+
+      .voice-wave {
+        display: flex;
+        gap: clamp(0.26rem, 0.65vw, 0.5rem);
+        align-items: center;
+        justify-content: flex-end;
+        height: 6rem;
+      }
+
+      .voice-wave span {
+        display: block;
+        width: clamp(0.25rem, 0.6vw, 0.42rem);
+        height: 26%;
+        background: var(--berry);
+        border-radius: 999px;
+      }
+
+      .voice-wave span:nth-child(2),
+      .voice-wave span:nth-child(14) { height: 44%; background: var(--coral); }
+      .voice-wave span:nth-child(3),
+      .voice-wave span:nth-child(13) { height: 70%; background: var(--apricot); }
+      .voice-wave span:nth-child(4),
+      .voice-wave span:nth-child(12) { height: 38%; background: #9aa866; }
+      .voice-wave span:nth-child(5),
+      .voice-wave span:nth-child(11) { height: 82%; background: var(--berry); }
+      .voice-wave span:nth-child(6),
+      .voice-wave span:nth-child(10) { height: 55%; background: var(--coral); }
+      .voice-wave span:nth-child(7),
+      .voice-wave span:nth-child(9) { height: 94%; background: var(--apricot); }
+      .voice-wave span:nth-child(8) { height: 68%; background: #879852; }
+
       .section {
         max-width: 100rem;
         margin: 0 auto;
@@ -476,6 +547,23 @@
         font-size: clamp(2.5rem, 4.1vw, 4.5rem);
         letter-spacing: -0.065em;
         line-height: 0.9;
+      }
+
+      .fit__heading {
+        display: flex;
+        gap: clamp(0.8rem, 1.6vw, 1.45rem);
+        align-items: baseline;
+      }
+
+      .fit__glyph {
+        flex: 0 0 auto;
+        width: 0.9em;
+        color: var(--berry);
+        font-family: var(--serif);
+        font-size: clamp(2rem, 3vw, 3.3rem);
+        font-weight: 400;
+        line-height: 1;
+        text-align: center;
       }
 
       .fit__item p {
@@ -641,6 +729,7 @@
         }
 
         .section-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .voice-note__inner { grid-template-columns: minmax(0, 1fr) minmax(12rem, 16rem); }
         .principles { margin-top: 3rem; }
         .story .section { grid-template-columns: minmax(15rem, 0.65fr) minmax(0, 1fr); gap: 4rem; }
         .contact__inner { grid-template-columns: 1fr; }
@@ -682,6 +771,9 @@
         .hero__facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1rem; }
         .hero__facts div:last-child { grid-column: 1 / -1; }
 
+        .voice-note__inner { grid-template-columns: 1fr; gap: 1.7rem; }
+        .voice-wave { justify-content: flex-start; width: min(100%, 18rem); height: 4.5rem; }
+
         .principles { grid-template-columns: 1fr; }
         .principles li { min-height: auto; padding: 1.4rem 0 1.7rem; }
         .principles li + li { padding-left: 0; border-left: 0; }
@@ -718,6 +810,24 @@
           -webkit-backdrop-filter: none;
           backdrop-filter: none;
         }
+      }
+
+      @media (prefers-contrast: more) {
+        .site-header,
+        .hero__portrait {
+          background: var(--paper-light);
+          border-color: var(--ink);
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+        }
+
+        .site-header,
+        .voice-note,
+        .principles,
+        .fit__list,
+        .studio__facts { border-color: currentColor; }
+
+        a:focus-visible { outline-width: 4px; }
       }
     </style>
 
@@ -793,6 +903,17 @@
         </div>
       </section>
 
+      <div class="voice-note">
+        <div class="voice-note__inner">
+          <p><strong>Understand the writing.</strong> Find the human stakes. Tell the story cleanly.</p>
+          <div class="voice-wave" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
       <section id="approach" aria-labelledby="approach-title">
         <div class="section section-grid">
           <p class="section-label">What I bring</p>
@@ -846,15 +967,24 @@
             <p class="fit__intro">Intelligent narrative nonfiction is a natural starting point, not a fence. The thread running through the work is a strong point of view and a story worth following.</p>
             <div class="fit__list">
               <article class="fit__item">
-                <h3>Ideas</h3>
+                <div class="fit__heading">
+                  <span class="fit__glyph" aria-hidden="true">✦</span>
+                  <h3>Ideas</h3>
+                </div>
                 <p><strong>Technology, AI, psychology, business, learning and popular science.</strong> Books where understanding the subject is part of performing it—and where clarity must never become simplification.</p>
               </article>
               <article class="fit__item">
-                <h3>Lives</h3>
+                <div class="fit__heading">
+                  <span class="fit__glyph" aria-hidden="true">“</span>
+                  <h3>Lives</h3>
+                </div>
                 <p><strong>Biography, memoir and narrative history.</strong> Real people need presence, judgement and emotional truth without borrowed sentiment.</p>
               </article>
               <article class="fit__item">
-                <h3>Worlds</h3>
+                <div class="fit__heading">
+                  <span class="fit__glyph" aria-hidden="true">◎</span>
+                  <h3>Worlds</h3>
+                </div>
                 <p><strong>Literary and contemporary fiction, speculative fiction and character-led thrillers.</strong> Storytelling with atmosphere, momentum and room for character.</p>
               </article>
             </div>
