@@ -12,6 +12,7 @@
   --apricot: #f3bd77;
   --sage: #dfe8ce;
   --sage-deep: #c6d5ab;
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 body {
@@ -81,6 +82,52 @@ nav a {
   transform: rotate(-7deg);
 }
 
+@keyframes hero-prism-scroll {
+  from {
+    opacity: 0.68;
+    transform: translate3d(-1.5rem, -1rem, 0) rotate(-7deg);
+  }
+
+  to {
+    opacity: 0.9;
+    transform: translate3d(2rem, 2.5rem, 0) rotate(-5.5deg);
+  }
+}
+
+@keyframes hero-portrait-scroll {
+  from { transform: translate3d(0, -0.6rem, 0) rotate(1.2deg); }
+  to { transform: translate3d(0, 1.4rem, 0) rotate(0.4deg); }
+}
+
+@keyframes hero-colour-plane-scroll {
+  from { transform: translate3d(0, 0.8rem, 0) rotate(-3deg); }
+  to { transform: translate3d(0, -1.2rem, 0) rotate(-1.8deg); }
+}
+
+@supports (animation-timeline: view()) {
+  .hero { view-timeline-name: --hero-view; }
+
+  .hero::after {
+    animation: hero-prism-scroll 1ms linear both;
+    animation-range: cover 0% cover 70%;
+    animation-timeline: --hero-view;
+    will-change: transform, opacity;
+  }
+
+  .hero__portrait,
+  .hero__visual::before {
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range: cover 0% cover 70%;
+    animation-timeline: --hero-view;
+    will-change: transform;
+  }
+
+  .hero__portrait { animation-name: hero-portrait-scroll; }
+  .hero__visual::before { animation-name: hero-colour-plane-scroll; }
+}
+
 .hero__grid {
   grid-template-areas:
     "copy visual"
@@ -111,6 +158,36 @@ nav a {
   display: inline-block;
   min-width: 2.2rem;
   color: currentColor;
+}
+
+.section-label {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.section-label::after {
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: 0.68;
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+html[data-motion-ready] .section-label[data-motion="pending"] {
+  opacity: 0;
+  transform: translate3d(0, 0.4rem, 0);
+  transition: opacity 280ms var(--ease-out), transform 280ms var(--ease-out);
+}
+
+html[data-motion-ready] .section-label[data-motion="pending"][data-entered] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 h1,
@@ -308,7 +385,7 @@ h2 {
   box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.45);
   cursor: pointer;
   touch-action: manipulation;
-  transition: transform 160ms var(--ease-out), background-color 160ms ease;
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
 }
 
 .player__toggle:active { transform: scale(0.96); }
@@ -344,7 +421,8 @@ h2 {
 }
 
 .waveform img,
-.waveform__played {
+.waveform__played,
+.waveform__live {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -352,19 +430,31 @@ h2 {
 }
 
 .waveform img {
+  z-index: 0;
   object-fit: contain;
   opacity: 0.22;
 }
 
 .waveform__played {
-  width: 0;
+  z-index: 1;
   background: url("immersive-event-waveform.png") left center / auto 100% no-repeat;
-  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
   pointer-events: none;
 }
 
+.waveform__live {
+  z-index: 2;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms var(--ease-out);
+}
+
+.player.has-live-visualiser.is-playing .waveform__live { opacity: 0.78; }
+
 .waveform__seek {
   position: absolute;
+  z-index: 3;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -434,6 +524,17 @@ h2 {
   box-shadow: 1.1rem 1.1rem 0 var(--sage-deep), -1.2rem -1.2rem 0 rgba(255, 250, 242, 0.34);
 }
 
+html[data-motion-ready] .story__image[data-motion="reveal"] {
+  clip-path: inset(0 0 100% 0);
+  transform: translate3d(0, 1rem, 0);
+  transition: clip-path 600ms var(--ease-in-out), transform 600ms var(--ease-out);
+}
+
+html[data-motion-ready] .story__image[data-motion="reveal"][data-entered] {
+  clip-path: inset(0 0 0 0);
+  transform: translate3d(0, 0, 0);
+}
+
 .story__copy h2 { max-width: 12ch; }
 
 .story__text { margin-top: 1.9rem; }
@@ -457,6 +558,22 @@ h2 {
 .fit__glyph {
   color: var(--berry-dark);
   font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+}
+
+.fit__item:nth-child(1) { --glyph-entry-turn: -18deg; --glyph-delay: 0ms; }
+.fit__item:nth-child(2) { --glyph-entry-turn: -6deg; --glyph-delay: 55ms; }
+.fit__item:nth-child(3) { --glyph-entry-turn: -24deg; --glyph-delay: 110ms; }
+
+html[data-motion-ready] .fit__item[data-motion="glyph"] .fit__glyph {
+  opacity: 0;
+  transform: translate3d(-0.35rem, 0.3rem, 0) rotate(var(--glyph-entry-turn)) scale(0.9);
+  transform-origin: center;
+  transition: opacity 280ms var(--ease-out) var(--glyph-delay), transform 280ms var(--ease-out) var(--glyph-delay);
+}
+
+html[data-motion-ready] .fit__item[data-motion="glyph"][data-entered] .fit__glyph {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
 }
 
 .studio { background: #2d211f; }
@@ -485,6 +602,21 @@ footer { padding-block: 1.6rem; }
   }
 
   .player__toggle:hover { background: #ffd394; }
+
+  #fit .fit__item:nth-child(1):hover .fit__glyph {
+    transform: translate3d(0, -0.08rem, 0) rotate(15deg) scale(1.08);
+    transition-delay: 0ms;
+  }
+
+  #fit .fit__item:nth-child(2):hover .fit__glyph {
+    transform: translate3d(0, -0.2rem, 0) rotate(-4deg) scale(1.05);
+    transition-delay: 0ms;
+  }
+
+  #fit .fit__item:nth-child(3):hover .fit__glyph {
+    transform: translate3d(0, -0.05rem, 0) rotate(18deg) scale(1.07);
+    transition-delay: 0ms;
+  }
 }
 
 @media (max-width: 980px) {
@@ -576,8 +708,35 @@ footer { padding-block: 1.6rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .player__toggle { transition: background-color 160ms ease; }
+  .player__toggle { transition: background-color 160ms var(--ease-out); }
   .player__toggle:active { transform: none; }
+
+  .hero::after { animation: none; }
+  .hero__portrait,
+  .hero__visual::before { animation: none; }
+
+  html[data-motion-ready] .section-label[data-motion="pending"],
+  html[data-motion-ready] .section-label[data-motion="pending"][data-entered] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html[data-motion-ready] .fit__item[data-motion="glyph"] .fit__glyph,
+  html[data-motion-ready] .fit__item[data-motion="glyph"][data-entered] .fit__glyph {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .waveform__live { display: none; }
+
+  html[data-motion-ready] .story__image[data-motion="reveal"],
+  html[data-motion-ready] .story__image[data-motion="reveal"][data-entered] {
+    clip-path: none;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (prefers-reduced-transparency: reduce) {
