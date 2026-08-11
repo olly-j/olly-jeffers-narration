@@ -248,6 +248,8 @@ h1 em, h2 em {
   content: "";
 }
 
+.portrait-frame picture { display: block; }
+
 .portrait-frame img {
   display: block;
   width: 100%;

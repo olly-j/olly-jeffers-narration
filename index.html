@@ -25,7 +25,7 @@
         "name": "Olly Jeffers",
         "jobTitle": "Audiobook narrator",
         "url": "https://ollyjeffers.co.uk/",
-        "image": "https://ollyjeffers.co.uk/assets/olly-jeffers.jpg",
+        "image": "https://ollyjeffers.co.uk/assets/olly-jeffers.webp",
         "sameAs": ["https://www.linkedin.com/in/ollyjeffers/"],
         "alumniOf": {"@type": "EducationalOrganization", "name": "Drama Centre London"},
         "homeLocation": {"@type": "Place", "name": "London, United Kingdom"},
@@ -64,7 +64,10 @@
 
         <aside class="casting-card" aria-label="Olly Jeffers at a glance">
           <div class="portrait-frame">
-            <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="Olly Jeffers in black tie" fetchpriority="high">
+            <picture>
+              <source type="image/webp" srcset="assets/olly-jeffers-166.webp 166w, assets/olly-jeffers.webp 200w" sizes="(max-width: 780px) 168px, 208px">
+              <img src="assets/olly-jeffers.jpg" width="200" height="200" alt="Olly Jeffers in black tie" fetchpriority="high">
+            </picture>
           </div>
           <dl>
             <div>
