@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://olly-j.github.io/olly-jeffers-narration/sitemap.xml
+Sitemap: https://ollyjeffers.co.uk/sitemap.xml
